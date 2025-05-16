@@ -1,0 +1,6 @@
+pinecone:
+  index_name: "vnu-wikis"
+  dimension: 1024
+  model_name: "BAAI/bge-m3"
+
+wiki_data: "data/wiki_data"
