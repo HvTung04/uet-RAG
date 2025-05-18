@@ -4,3 +4,6 @@ pinecone:
   model_name: "BAAI/bge-m3"
 
 wiki_data: "data/wiki_data"
+
+generator:
+  model_name: "llama-3.3-70b-versatile"

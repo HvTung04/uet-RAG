@@ -1,5 +1,5 @@
 from groq import Groq
-from prompt import RAG_SYSTEM
+from generator.prompt import RAG_SYSTEM
 
 class GroqModel:
     def __init__(self, model_name, system_prompt=RAG_SYSTEM):

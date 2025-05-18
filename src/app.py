@@ -5,6 +5,8 @@ from tqdm import tqdm
 import argparse
 
 from indexer.pinecone import PineconeIndex
+from engine.rag_engine import RAGEngine
+from generator.groq_model import GroqModel
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--upsert", action="store_true", help="Upsert wiki pages to Pinecone")
@@ -15,6 +17,7 @@ with open("config.yaml", "r") as file:
     config = yaml.safe_load(file)
 
 pinecone_config = config.get("pinecone")
+generator_config = config.get("generator")
 
 def find_json_files(folder_path):
     folder = Path(folder_path)
@@ -26,6 +29,10 @@ if __name__ == "__main__":
         model_name=pinecone_config["model_name"],
         dimension=pinecone_config["dimension"],
     )
+    generator = GroqModel(
+        model_name=generator_config["model_name"],
+    )
+    engine = RAGEngine(indexer=indexer, generator=generator)
 
     # Upserting all wiki pages
     if args.upsert:
@@ -39,6 +46,6 @@ if __name__ == "__main__":
 
     if args.query:
         print("Searching for query...")
-        results = indexer.search(args.query, top_k=5)
-        print(results)
-        print(type(results))
+        response = engine.generate_answer(args.query)
+        print(f"Query: {args.query}")
+        print(f"Response: {response}")
