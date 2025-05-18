@@ -24,7 +24,7 @@ if __name__ == "__main__":
     indexer = PineconeIndex(
         index_name=pinecone_config["index_name"],
         model_name=pinecone_config["model_name"],
-        dimension=pinecone_config["dimension"]
+        dimension=pinecone_config["dimension"],
     )
 
     # Upserting all wiki pages
