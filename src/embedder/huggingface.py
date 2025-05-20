@@ -17,6 +17,6 @@ class HuggingFaceEmbedder:
         :return: List of embeddings.
         """
         texts = [
-            tokenize(text) if isinstance(text, str) else text for text in texts
+            str(tokenize(text)) if isinstance(text, str) else text for text in texts
         ]
         return self.model.encode(texts)
