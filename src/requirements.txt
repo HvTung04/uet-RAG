@@ -2,3 +2,4 @@ pinecone
 sentence-transformers
 python-dotenv
 groq
+pyvi

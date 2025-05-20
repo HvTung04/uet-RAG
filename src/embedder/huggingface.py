@@ -1,5 +1,6 @@
 from sentence_transformers import SentenceTransformer
 import torch
+from pyvi.ViTokenizer import tokenize
 
 class HuggingFaceEmbedder:
     def __init__(self, model_name):
@@ -15,4 +16,7 @@ class HuggingFaceEmbedder:
         :param texts: List of texts to encode.
         :return: List of embeddings.
         """
+        texts = [
+            tokenize(text) if isinstance(text, str) else text for text in texts
+        ]
         return self.model.encode(texts)
