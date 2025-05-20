@@ -1,5 +1,5 @@
 pinecone:
-  index_name: "vnu-wikis"
+  index_name: "vnu-wikis-special"
   dimension: 768
   model_name: 'dangvantuan/vietnamese-embedding'
 

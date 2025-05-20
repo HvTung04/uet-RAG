@@ -5,6 +5,7 @@ from tqdm import tqdm
 import argparse
 
 from indexer.pinecone import PineconeIndex
+from indexer.utils import rechunking
 from engine.rag_engine import RAGEngine
 from generator.groq_model import GroqModel
 
@@ -41,7 +42,7 @@ if __name__ == "__main__":
         for file in tqdm(json_files, desc="Processing JSON files", unit="file"):
             with open(file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-            texts = data["raw_content"]["content"]
+            texts = rechunking(data["raw_content"]["content"])
             indexer.upsert_texts(texts, file_source=file)
 
     if args.query:
