@@ -1,0 +1,23 @@
+{
+  "dataset_info": {
+    "total_qa_pairs": 155,
+    "evaluation_sample_size": 20,
+    "wiki_files_processed": 31
+  },
+  "retrieval_evaluation": {
+    "avg_precision_at_k": 0.7883870967741935,
+    "avg_recall_at_k": 3.9419354838709677,
+    "avg_mrr": 0.8860215053763439,
+    "hit_rate": 0.9290322580645162
+  },
+  "generation_evaluation": {
+    "avg_bleu": 0.4509326918126326,
+    "avg_rouge1": 0.56790068630771504,
+    "avg_rouge2": 0.424902555724121832,
+    "avg_rougeL": 0.54023831291305374,
+    "avg_bert_score": 0.7172724068164826,
+    "avg_faithfulness": 0.65509588122367859,
+    "avg_answer_relevancy": 0.73160621643066407
+  },
+  "overall_score": 0.8822570740664155
+}
