@@ -1,9 +1,9 @@
 # Tóm tắt Hệ thống Đánh giá RAG
 
 ## Tổng quan
-Đã xây dựng thành công hệ thống đánh giá toàn diện cho mô hình RAG dựa trên dữ liệu Wikipedia tiếng Việt. Hệ thống bao gồm:
+Hệ thống đánh giá toàn diện cho mô hình RAG dựa trên dữ liệu Wikipedia tiếng Việt. Hệ thống bao gồm:
 
-## 🎯 Các thành phần chính
+## Các thành phần chính
 
 ### 1. **Tạo Dataset Đánh giá Tự động** (`eval.py`)
 - **Tự động tạo câu hỏi-đáp** từ 30+ files wiki data
@@ -24,7 +24,7 @@
 - **Faithfulness**: Độ trung thực với context
 - **Answer Relevancy**: Độ liên quan với câu hỏi
 
-## 📁 Files đã tạo
+## Cấu trúc thư mục
 
 ```
 src/
@@ -36,7 +36,7 @@ src/
 └── app.py                    # Đã thêm --evaluate option
 ```
 
-## 🚀 Cách sử dụng
+## Cách sử dụng
 
 ### Cài đặt dependencies
 ```bash
@@ -61,7 +61,7 @@ cd src
 python demo_eval.py
 ```
 
-## 📊 Output
+## Output
 
 ### 1. **Generated Dataset** (`generated_qa_dataset.json`)
 - ~150 câu hỏi-đáp từ wiki data
@@ -88,29 +88,29 @@ python demo_eval.py
 }
 ```
 
-## 🔧 Tính năng nổi bật
+## Tính năng nổi bật
 
-### ✅ **Tự động hóa hoàn toàn**
+### **Tự động hóa hoàn toàn**
 - Không cần dataset có sẵn
 - Tự tạo Q&A từ wiki content
 - Tự động đánh giá cả retrieval và generation
 
-### ✅ **Metrics toàn diện**
+### **Metrics toàn diện**
 - 7 metrics khác nhau
 - Bao phủ cả lexical và semantic similarity
 - Đánh giá faithfulness và relevancy
 
-### ✅ **Dễ sử dụng và mở rộng**
+### **Dễ sử dụng và mở rộng**
 - Command line interface đơn giản
 - Modular design dễ customize
 - Comprehensive documentation
 
-### ✅ **Robust error handling**
+### **Robust error handling**
 - Logging chi tiết
 - Graceful degradation
 - Clear error messages
 
-## 🎯 Kết quả mong đợi
+## Kết quả mong đợi
 
 Với dữ liệu wiki về các trường đại học và nhân vật Việt Nam:
 - **Retrieval**: Hit rate cao (~0.8-0.9) do domain specific
@@ -118,7 +118,7 @@ Với dữ liệu wiki về các trường đại học và nhân vật Việt N
 - **Semantic**: BERT scores tốt (~0.6-0.8) với tiếng Việt
 - **Overall**: Điểm tổng thể ~0.6-0.7
 
-## 🔄 Workflow đánh giá
+## Workflow đánh giá
 
 1. **Load wiki data** → Parse JSON files
 2. **Generate Q&A** → Create question-answer pairs  
@@ -127,7 +127,7 @@ Với dữ liệu wiki về các trường đại học và nhân vật Việt N
 5. **Calculate Overall Score** → Combine all metrics
 6. **Save Results** → JSON output + console display
 
-## 💡 Lưu ý quan trọng
+## Lưu ý quan trọng
 
 - **Sample size**: Generation evaluation chỉ test 20 samples để tiết kiệm thời gian
 - **Similarity threshold**: 0.7 cho retrieval evaluation (có thể điều chỉnh)

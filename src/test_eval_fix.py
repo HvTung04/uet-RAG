@@ -15,10 +15,10 @@ def test_basic_imports():
     print("Testing basic imports...")
     try:
         from eval import RAGEvaluator
-        print("✅ RAGEvaluator import successful")
+        print("RAGEvaluator import successful")
         return True
     except Exception as e:
-        print(f"❌ Import error: {e}")
+        print(f"Import error: {e}")
         return False
 
 def test_config_loading():
@@ -27,10 +27,10 @@ def test_config_loading():
     try:
         from eval import RAGEvaluator
         evaluator = RAGEvaluator("config.yaml")
-        print("✅ Config loading successful")
+        print("Config loading successful")
         return True
     except Exception as e:
-        print(f"❌ Config loading error: {e}")
+        print(f"Config loading error: {e}")
         return False
 
 def test_qa_generation():
@@ -43,13 +43,13 @@ def test_qa_generation():
         # Test với một file nhỏ
         wiki_data_path = "data/wiki_data"
         if not os.path.exists(wiki_data_path):
-            print(f"⚠️  Wiki data path not found: {wiki_data_path}")
+            print(f"Wiki data path not found: {wiki_data_path}")
             return False
         
         # Lấy chỉ 1 file để test
         wiki_files = list(Path(wiki_data_path).glob("*.json"))
         if not wiki_files:
-            print("⚠️  No wiki files found")
+            print("No wiki files found")
             return False
         
         print(f"Found {len(wiki_files)} wiki files")
@@ -70,15 +70,15 @@ def test_qa_generation():
         print(f"Generated {len(questions)} questions")
         
         if questions:
-            print("✅ Q&A generation successful")
+            print("Q&A generation successful")
             print(f"Sample question: {questions[0]['question']}")
             return True
         else:
-            print("⚠️  No questions generated")
+            print("No questions generated")
             return False
             
     except Exception as e:
-        print(f"❌ Q&A generation error: {e}")
+        print(f"Q&A generation error: {e}")
         return False
 
 def test_rag_engine():
@@ -110,18 +110,18 @@ def test_rag_engine():
         test_query = "Đại học Quốc gia Hà Nội là gì?"
         answer = engine.generate_answer(test_query)
         
-        print(f"✅ RAG engine test successful")
+        print(f"RAG engine test successful")
         print(f"Query: {test_query}")
         print(f"Answer: {answer[:100]}...")
         return True
         
     except Exception as e:
-        print(f"❌ RAG engine error: {e}")
+        print(f"RAG engine error: {e}")
         return False
 
 def main():
     """Run all tests"""
-    print("🧪 TESTING EVALUATION SYSTEM FIXES")
+    print("TESTING EVALUATION SYSTEM FIXES")
     print("=" * 50)
     
     tests = [
@@ -147,9 +147,9 @@ def main():
     print(f"Test Results: {passed}/{total} passed")
     
     if passed == total:
-        print("🎉 All tests passed! Evaluation system is ready.")
+        print("All tests passed! Evaluation system is ready.")
     else:
-        print("⚠️  Some tests failed. Check the errors above.")
+        print("Some tests failed. Check the errors above.")
 
 if __name__ == "__main__":
     main() 
